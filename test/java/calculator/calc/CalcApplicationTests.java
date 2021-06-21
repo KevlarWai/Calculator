@@ -14,7 +14,7 @@ class CalcApplicationTests {
 		assertEquals(calc.calculate(2, 3, '*'), 6);
 		assertEquals(calc.calculate(2, 3, '+'), 5);
 		assertEquals(calc.calculate(3, 2, '-'), 1);
-		assertEquals(calc.calculate(2, 3, '/'), 0.66);
+		assertEquals(calc.calculate(2, 3, '/'), 0.6666666666666666);
 	}
 
 }

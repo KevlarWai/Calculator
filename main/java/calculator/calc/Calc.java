@@ -1,8 +1,8 @@
 package calculator.calc;
 
-public class CalcModel {
+public class Calc {
 
-    public double calculate(int value, int value2, char operator) {
+    public double calculate(double value, double value2, char operator) {
         double answer = 0.0;
 
         switch (operator) {
@@ -21,4 +21,9 @@ public class CalcModel {
         }
         return answer;
     };
+
+    public double stringToDouble(String value) {
+        double number;
+        return number;
+    }
 }
