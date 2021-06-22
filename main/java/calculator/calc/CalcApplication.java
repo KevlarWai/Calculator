@@ -8,8 +8,6 @@ public class CalcApplication {
 
 	public static void main(String[] args) {
 		//SpringApplication.run(CalcApplication.class, args);
-		CalcModel calc = new CalcModel();
-		System.out.println(calc.calculate(2, 3, '/'));
 	
 	
 	}
