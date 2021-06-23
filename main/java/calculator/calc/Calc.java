@@ -5,10 +5,6 @@ public class Calc {
     public double calculate(double value, double value2, char operator) {
         double answer = 0.0;
 
-        System.out.println("ival1: " + value);
-        System.out.println("ival2: " + value2);
-        System.out.println("ioperator: " + operator);
-
         switch (operator) {
             case '+':
                 answer = value + value2;
@@ -31,13 +27,8 @@ public class Calc {
         double val2 = 0.0;
         char operator = '+';
         int operatorPosition = 0;
-        double answer = 0.0;
 
         if (countOccurancesOperator(equation) > 1) {
-            System.out.println("Equation: " + equation);
-            System.out.println("First arg: " + equation.substring(0, lastOccuranceOperator(equation)));
-            System.out.println("second arg: " + equation.substring(lastOccuranceOperator(equation) + 1));
-            System.out.println("end operator: " + equation.charAt(lastOccuranceOperator(equation)));
 
             return calculate(calcString(equation.substring(0, lastOccuranceOperator(equation))),
                     Double.parseDouble(equation.substring(lastOccuranceOperator(equation) + 1)),
@@ -48,18 +39,11 @@ public class Calc {
             operator = findFirstOperator(equation);
             operatorPosition = findFirstPositionOperator(equation);
 
-            System.out.println("ioperatorPosition: " + operatorPosition);
-
             val1 = Double.parseDouble(equation.substring(0, operatorPosition));
             val2 = Double.parseDouble(equation.substring(operatorPosition + 1));
 
-            System.out.println("val1: " + val1);
-            System.out.println("val2: " + val2);
+            return calculate(val1, val2, operator);
 
-            answer = calculate(val1, val2, operator);
-
-            System.out.println("return: " + answer);
-            return answer;
         }
 
     }
@@ -105,7 +89,7 @@ public class Calc {
         return 0;
     }
 
-    public char findFirstOperator(String equation) {
+    private char findFirstOperator(String equation) {
 
         char operator = '+';
 
@@ -122,7 +106,7 @@ public class Calc {
         return operator;
     }
 
-    public int findFirstPositionOperator(String equation) {
+    private int findFirstPositionOperator(String equation) {
 
         int operatorPosition = 0;
 
