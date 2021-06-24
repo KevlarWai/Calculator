@@ -7,5 +7,7 @@ public class CalcController {
     public CalcController(Calc model, CalcView view) {
         this.model = model;
         this.view = view;
+
+        
     }
 }
