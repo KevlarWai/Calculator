@@ -12,6 +12,7 @@ public class CalcView {
     private int boarder = 30;
     private int texty = 100;
 
+
     public CalcView() {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,21 +36,25 @@ public class CalcView {
         JButton divide = new JButton("/");
         JButton equals = new JButton("=");
 
-        button0.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 3)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button1.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button2.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button3.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button4.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button5.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button6.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button7.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button8.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        button9.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), (width - (2*boarder)) / 3, (height-(3*boarder) - texty )/6);
-        addition.setBounds(boarder + (0*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), (width - (2*boarder)) / 4, (height-(3*boarder) - texty )/6);
-        subtraction.setBounds(boarder + (1*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), (width - (2*boarder)) / 4, (height-(3*boarder) - texty )/6);
-        multiply.setBounds(boarder + (2*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), (width - (2*boarder)) / 4, (height-(3*boarder) - texty )/6);
-        divide.setBounds(boarder + (3*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), (width - (2*boarder)) / 4, (height-(3*boarder) - texty )/6);
-        equals.setBounds(boarder ,(texty + boarder + ((height-(3*boarder) - texty )/6 * 5)), width - (2*boarder), (height-(3*boarder) - texty )/6);
+        int buttonWidth = (width - (2*boarder)) / 3;
+        int buttonHeight = (height-(3*boarder) - texty )/6;
+        int calcButtonWidth = (width - (2*boarder)) / 4;
+
+        button0.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 3)), buttonWidth, buttonHeight);
+        button1.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), buttonWidth, buttonHeight);
+        button2.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), buttonWidth, buttonHeight);
+        button3.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 0)), buttonWidth, buttonHeight);
+        button4.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), buttonWidth, buttonHeight);
+        button5.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), buttonWidth, buttonHeight);
+        button6.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 1)), buttonWidth, buttonHeight);
+        button7.setBounds(boarder + (0*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), buttonWidth, buttonHeight);
+        button8.setBounds(boarder + (1*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), buttonWidth, buttonHeight);
+        button9.setBounds(boarder + (2*((width - (2*boarder))/3)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 2)), buttonWidth, buttonHeight);
+        addition.setBounds(boarder + (0*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), calcButtonWidth, buttonHeight);
+        subtraction.setBounds(boarder + (1*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), calcButtonWidth, buttonHeight);
+        multiply.setBounds(boarder + (2*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), calcButtonWidth, buttonHeight);
+        divide.setBounds(boarder + (3*((width - (2*boarder))/4)),(texty + boarder + ((height-(3*boarder) - texty )/6 * 4)), calcButtonWidth, buttonHeight);
+        equals.setBounds(boarder ,(texty + boarder + ((height-(3*boarder) - texty )/6 * 5)), width - (2*boarder), buttonHeight);
 
 
         panel.add(tf);
