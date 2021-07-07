@@ -47,6 +47,19 @@ public class Calc {
         }
 
     }
+    // Split equations into values with operators, insert into array and sort
+    public String operationsOrder(String equation){
+        String newEquation = "error";
+        int numberOfValues = countOccurancesOperator(equation);
+
+        String[] splitEquation = new String[numberOfValues];
+        // find a way to split equation with apropriate values with operators
+        // for(int i = 0; int < numberOfValues; i++){
+        //     splitEquation[i] = ;
+        // }
+
+        return newEquation;
+    }
 
     public int countOccurancesOperator(String equation) {
         int totalOperators = 0;

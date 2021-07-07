@@ -16,13 +16,6 @@ public class CalcApplication {
 
 		CalcController controller = new CalcController(model, view);
 
-		// JFrame frame = new JFrame("Calculator");
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.setSize(300, 300);
-        // JButton button = new JButton("Press");
-        // frame.getContentPane().add(button); // Adds Button to content pane of frame
-        // frame.setVisible(true);
-
 	}
 
 }
