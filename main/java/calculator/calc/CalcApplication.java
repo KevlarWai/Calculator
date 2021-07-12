@@ -9,12 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CalcApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(CalcApplication.class, args);
+		// SpringApplication.run(CalcApplication.class, args);
 
-		Calc model = new Calc();
-		CalcView view = new CalcView();
-
-		CalcController controller = new CalcController(model, view);
+		CalcController.getInstance();
 
 	}
 

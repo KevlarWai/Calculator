@@ -2,137 +2,144 @@ package calculator.calc;
 
 public class Calc {
 
-    public double calculate(double value, double value2, char operator) {
-        double answer = 0.0;
+	private static Calc instance = new Calc();
 
-        switch (operator) {
-            case '+':
-                answer = value + value2;
-                break;
-            case '-':
-                answer = value - value2;
-                break;
-            case '*':
-                answer = value * value2;
-                break;
-            case '/':
-                answer = value / value2;
-                break;
-        }
-        return answer;
-    };
+	public double calculate(double value, double value2, char operator) {
+		double answer = 0.0;
 
-    public double calcString(String equation) {
-        double val1 = 0.0;
-        double val2 = 0.0;
-        char operator = '+';
-        int operatorPosition = 0;
+		switch (operator) {
+		case '+':
+			answer = value + value2;
+			break;
+		case '-':
+			answer = value - value2;
+			break;
+		case '*':
+			answer = value * value2;
+			break;
+		case '/':
+			answer = value / value2;
+			break;
+		}
+		return answer;
+	};
 
-        if (countOccurancesOperator(equation) > 1) {
+	public double calcString(String equation) {
+		double val1 = 0.0;
+		double val2 = 0.0;
+		char operator = '+';
+		int operatorPosition = 0;
 
-            return calculate(calcString(equation.substring(0, lastOccuranceOperator(equation))),
-                    Double.parseDouble(equation.substring(lastOccuranceOperator(equation) + 1)),
-                    equation.charAt(lastOccuranceOperator(equation)));
+		if (countOccurancesOperator(equation) > 1) {
 
-        } else {
+			return calculate(calcString(equation.substring(0, lastOccuranceOperator(equation))),
+					Double.parseDouble(equation.substring(lastOccuranceOperator(equation) + 1)),
+					equation.charAt(lastOccuranceOperator(equation)));
 
-            operator = findFirstOperator(equation);
-            operatorPosition = findFirstPositionOperator(equation);
+		} else {
 
-            val1 = Double.parseDouble(equation.substring(0, operatorPosition));
-            val2 = Double.parseDouble(equation.substring(operatorPosition + 1));
+			operator = findFirstOperator(equation);
+			operatorPosition = findFirstPositionOperator(equation);
 
-            return calculate(val1, val2, operator);
+			val1 = Double.parseDouble(equation.substring(0, operatorPosition));
+			val2 = Double.parseDouble(equation.substring(operatorPosition + 1));
 
-        }
+			return calculate(val1, val2, operator);
 
-    }
-    // Split equations into values with operators, insert into array and sort
-    public String operationsOrder(String equation){
-        String newEquation = "error";
-        int numberOfValues = countOccurancesOperator(equation);
+		}
 
-        String[] splitEquation = new String[numberOfValues];
-        // find a way to split equation with apropriate values with operators
-        // for(int i = 0; int < numberOfValues; i++){
-        //     splitEquation[i] = ;
-        // }
+	}
 
-        return newEquation;
-    }
+	// Split equations into values with operators, insert into array and sort
+	public String operationsOrder(String equation) {
+		String newEquation = "error";
+		int numberOfValues = countOccurancesOperator(equation);
 
-    public int countOccurancesOperator(String equation) {
-        int totalOperators = 0;
+		String[] splitEquation = new String[numberOfValues];
+		// find a way to split equation with apropriate values with operators
+		// for(int i = 0; int < numberOfValues; i++){
+		// splitEquation[i] = ;
+		// }
 
-        for (int i = 0; i < equation.length(); i++) {
-            if (equation.substring(i).startsWith("+")) {
-                totalOperators++;
-            } else if (equation.substring(i).startsWith("-")) {
-                totalOperators++;
-            } else if (equation.substring(i).startsWith("*")) {
-                totalOperators++;
-            } else if (equation.substring(i).startsWith("/")) {
-                totalOperators++;
-            }
-        }
+		return newEquation;
+	}
 
-        return totalOperators;
-    }
+	public int countOccurancesOperator(String equation) {
+		int totalOperators = 0;
 
-    public int lastOccuranceOperator(String equation) {
+		for (int i = 0; i < equation.length(); i++) {
+			if (equation.substring(i).startsWith("+")) {
+				totalOperators++;
+			} else if (equation.substring(i).startsWith("-")) {
+				totalOperators++;
+			} else if (equation.substring(i).startsWith("*")) {
+				totalOperators++;
+			} else if (equation.substring(i).startsWith("/")) {
+				totalOperators++;
+			}
+		}
 
-        if ((equation.lastIndexOf("+") > equation.lastIndexOf("-"))
-                && (equation.lastIndexOf("+") > equation.lastIndexOf("*"))
-                && (equation.lastIndexOf("+") > equation.lastIndexOf("/"))) {
-            return equation.lastIndexOf("+");
-        } else if ((equation.lastIndexOf("-") > equation.lastIndexOf("+"))
-                && (equation.lastIndexOf("-") > equation.lastIndexOf("*"))
-                && (equation.lastIndexOf("-") > equation.lastIndexOf("/"))) {
-            return equation.lastIndexOf("-");
-        } else if ((equation.lastIndexOf("*") > equation.lastIndexOf("+"))
-                && (equation.lastIndexOf("*") > equation.lastIndexOf("-"))
-                && (equation.lastIndexOf("*") > equation.lastIndexOf("/"))) {
-            return equation.lastIndexOf("*");
-        } else if ((equation.lastIndexOf("/") > equation.lastIndexOf("+"))
-                && (equation.lastIndexOf("/") > equation.lastIndexOf("-"))
-                && (equation.lastIndexOf("/") > equation.lastIndexOf("*"))) {
-            return equation.lastIndexOf("/");
-        }
+		return totalOperators;
+	}
 
-        return 0;
-    }
+	public int lastOccuranceOperator(String equation) {
 
-    private char findFirstOperator(String equation) {
+		if ((equation.lastIndexOf("+") > equation.lastIndexOf("-"))
+				&& (equation.lastIndexOf("+") > equation.lastIndexOf("*"))
+				&& (equation.lastIndexOf("+") > equation.lastIndexOf("/"))) {
+			return equation.lastIndexOf("+");
+		} else if ((equation.lastIndexOf("-") > equation.lastIndexOf("+"))
+				&& (equation.lastIndexOf("-") > equation.lastIndexOf("*"))
+				&& (equation.lastIndexOf("-") > equation.lastIndexOf("/"))) {
+			return equation.lastIndexOf("-");
+		} else if ((equation.lastIndexOf("*") > equation.lastIndexOf("+"))
+				&& (equation.lastIndexOf("*") > equation.lastIndexOf("-"))
+				&& (equation.lastIndexOf("*") > equation.lastIndexOf("/"))) {
+			return equation.lastIndexOf("*");
+		} else if ((equation.lastIndexOf("/") > equation.lastIndexOf("+"))
+				&& (equation.lastIndexOf("/") > equation.lastIndexOf("-"))
+				&& (equation.lastIndexOf("/") > equation.lastIndexOf("*"))) {
+			return equation.lastIndexOf("/");
+		}
 
-        char operator = '+';
+		return 0;
+	}
 
-        if (equation.indexOf('+') > 0) {
-            operator = '+';
-        } else if (equation.indexOf('-') > 0) {
-            operator = '-';
-        } else if (equation.indexOf('*') > 0) {
-            operator = '*';
-        } else if (equation.indexOf('/') > 0) {
-            operator = '/';
-        }
+	private char findFirstOperator(String equation) {
 
-        return operator;
-    }
+		char operator = '+';
 
-    private int findFirstPositionOperator(String equation) {
+		if (equation.indexOf('+') > 0) {
+			operator = '+';
+		} else if (equation.indexOf('-') > 0) {
+			operator = '-';
+		} else if (equation.indexOf('*') > 0) {
+			operator = '*';
+		} else if (equation.indexOf('/') > 0) {
+			operator = '/';
+		}
 
-        int operatorPosition = 0;
+		return operator;
+	}
 
-        if (equation.indexOf('+') > 0) {
-            operatorPosition = equation.indexOf('+');
-        } else if (equation.indexOf('-') > 0) {
-            operatorPosition = equation.indexOf('-');
-        } else if (equation.indexOf('*') > 0) {
-            operatorPosition = equation.indexOf('*');
-        } else if (equation.indexOf('/') > 0) {
-            operatorPosition = equation.indexOf('/');
-        }
+	private int findFirstPositionOperator(String equation) {
 
-        return operatorPosition;
-    }
+		int operatorPosition = 0;
+
+		if (equation.indexOf('+') > 0) {
+			operatorPosition = equation.indexOf('+');
+		} else if (equation.indexOf('-') > 0) {
+			operatorPosition = equation.indexOf('-');
+		} else if (equation.indexOf('*') > 0) {
+			operatorPosition = equation.indexOf('*');
+		} else if (equation.indexOf('/') > 0) {
+			operatorPosition = equation.indexOf('/');
+		}
+
+		return operatorPosition;
+	}
+
+	public static Calc getInstance() {
+		return instance;
+	}
 }

@@ -1,13 +1,18 @@
 package calculator.calc;
 
 public class CalcController {
-    private Calc model;
-    private CalcView view;
+	private static CalcController instance = new CalcController();
+	private Calc model;
+	private CalcView view;
 
-    public CalcController(Calc model, CalcView view) {
-        this.model = model;
-        this.view = view;
+	public CalcController() {
+		this.model = Calc.getInstance();
+		view = CalcView.getInstance();
 
-        
-    }
+	}
+
+	public static CalcController getInstance() {
+		return instance;
+
+	}
 }
