@@ -1,12 +1,32 @@
 package calculator.calc;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class CalcView {
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CalcView extends JFrame implements ActionListener {
 
 	private static CalcView instance = new CalcView();
 	private JFrame frame;
+
+	private JButton button0;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JButton button5;
+	private JButton button6;
+	private JButton button7;
+	private JButton button8;
+	private JButton button9;
+	private JButton addition;
+	private JButton subtraction;
+	private JButton multiply;
+	private JButton divide;
+	private JButton equals;
+	private JTextField tf;
 
 	private int width = 300;
 	private int height = 500;
@@ -15,26 +35,26 @@ public class CalcView {
 
 	public CalcView() {
 		frame = new JFrame("Calculator");
+		setBounds(100, 100, width, height);
+		getContentPane().setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, height);
-		JPanel panel = new JPanel();
-		JPanel inputArea = new JPanel();
-		JTextField tf = new JTextField(10);
-		JButton button0 = new JButton("0");
-		JButton button1 = new JButton("1");
-		JButton button2 = new JButton("2");
-		JButton button3 = new JButton("3");
-		JButton button4 = new JButton("4");
-		JButton button5 = new JButton("5");
-		JButton button6 = new JButton("6");
-		JButton button7 = new JButton("7");
-		JButton button8 = new JButton("8");
-		JButton button9 = new JButton("9");
-		JButton addition = new JButton("+");
-		JButton subtraction = new JButton("-");
-		JButton multiply = new JButton("X");
-		JButton divide = new JButton("/");
-		JButton equals = new JButton("=");
+		tf = new JTextField(10);
+		button0 = new JButton("0");
+		button1 = new JButton("1");
+		button2 = new JButton("2");
+		button3 = new JButton("3");
+		button4 = new JButton("4");
+		button5 = new JButton("5");
+		button6 = new JButton("6");
+		button7 = new JButton("7");
+		button8 = new JButton("8");
+		button9 = new JButton("9");
+		addition = new JButton("+");
+		subtraction = new JButton("-");
+		multiply = new JButton("X");
+		divide = new JButton("/");
+		equals = new JButton("=");
 
 		int buttonWidth = (width - (2 * boarder)) / 3;
 		int buttonHeight = (height - (3 * boarder) - texty) / 6;
@@ -42,6 +62,7 @@ public class CalcView {
 		int xposition = (width - (2 * boarder)) / 3;
 		int yposition = (height - (3 * boarder) - texty) / 6;
 
+		tf.setBounds(boarder, boarder, width - (boarder * 2), 40);
 		button0.setBounds(boarder + (1 * xposition), (texty + boarder) + (yposition * 3), buttonWidth, buttonHeight);
 		button1.setBounds(boarder + (0 * xposition), (texty + boarder) + (yposition * 0), buttonWidth, buttonHeight);
 		button2.setBounds(boarder + (1 * xposition), (texty + boarder) + (yposition * 0), buttonWidth, buttonHeight);
@@ -62,31 +83,101 @@ public class CalcView {
 				calcButtonWidth, buttonHeight);
 		equals.setBounds(boarder, (texty + boarder) + (yposition * 5), width - (2 * boarder), buttonHeight);
 
-		panel.add(tf);
+		add(tf);
 
-		frame.add(button0);
-		frame.add(button1);
-		frame.add(button2);
-		frame.add(button3);
-		frame.add(button4);
-		frame.add(button5);
-		frame.add(button6);
-		frame.add(button7);
-		frame.add(button8);
-		frame.add(button9);
-		frame.add(addition);
-		frame.add(subtraction);
-		frame.add(multiply);
-		frame.add(divide);
-		frame.add(equals);
+		add(button0);
+		add(button1);
+		add(button2);
+		add(button3);
+		add(button4);
+		add(button5);
+		add(button6);
+		add(button7);
+		add(button8);
+		add(button9);
+		add(addition);
+		add(subtraction);
+		add(multiply);
+		add(divide);
+		add(equals);
 
-		frame.getContentPane().add(BorderLayout.NORTH, panel);
-		frame.getContentPane().add(BorderLayout.CENTER, inputArea);
-		frame.setVisible(true);
+		setVisible(true);
 	}
 
+	public void setZeroBtnListener(ActionListener listener) {
+		button0.addActionListener(listener);
+	}
+
+	public void setOneBtnListener(ActionListener listener) {
+		button1.addActionListener(listener);
+	}
+
+	public void setTwoBtnListener(ActionListener listener) {
+		button2.addActionListener(listener);
+	}
+
+	public void setThreeBtnListener(ActionListener listener) {
+		button3.addActionListener(listener);
+	}
+
+	public void setFourBtnListener(ActionListener listener) {
+		button4.addActionListener(listener);
+	}
+
+	public void setFiveBtnListener(ActionListener listener) {
+		button5.addActionListener(listener);
+	}
+
+	public void setSixBtnListener(ActionListener listener) {
+		button6.addActionListener(listener);
+	}
+
+	public void setSevenBtnListener(ActionListener listener) {
+		button7.addActionListener(listener);
+	}
+
+	public void setEightBtnListener(ActionListener listener) {
+		button8.addActionListener(listener);
+	}
+
+	public void setNineBtnListener(ActionListener listener) {
+		button9.addActionListener(listener);
+	}
+
+	public void setAdditionBtnListener(ActionListener listener) {
+		addition.addActionListener(listener);
+	}
+
+	public void setSubtractionBtnListener(ActionListener listener) {
+		subtraction.addActionListener(listener);
+	}
+
+	public void setMultiplyBtnListener(ActionListener listener) {
+		multiply.addActionListener(listener);
+	}
+
+	public void setDivideBtnListener(ActionListener listener) {
+		divide.addActionListener(listener);
+	}
+
+	public void setequalsBtnListener(ActionListener listener) {
+		equals.addActionListener(listener);
+	}
+	
+	public void setText(String text) {
+		tf.setText(tf.getText()+ text);
+	}
+	
 	public static CalcView getInstance() {
 		return instance;
+	}
+	
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
