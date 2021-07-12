@@ -83,6 +83,36 @@ public class CalcView extends JFrame implements ActionListener {
 				calcButtonWidth, buttonHeight);
 		equals.setBounds(boarder, (texty + boarder) + (yposition * 5), width - (2 * boarder), buttonHeight);
 
+		button0.setActionCommand("0");
+		button1.setActionCommand("1");
+		button2.setActionCommand("2");
+		button3.setActionCommand("3");
+		button4.setActionCommand("4");
+		button5.setActionCommand("5");
+		button6.setActionCommand("6");
+		button7.setActionCommand("7");
+		button8.setActionCommand("8");
+		button9.setActionCommand("9");
+		addition.setActionCommand("+");
+		subtraction.setActionCommand("-");
+		multiply.setActionCommand("*");
+		divide.setActionCommand("/");
+
+		button0.addActionListener(this);
+		button1.addActionListener(this);
+		button2.addActionListener(this);
+		button3.addActionListener(this);
+		button4.addActionListener(this);
+		button5.addActionListener(this);
+		button6.addActionListener(this);
+		button7.addActionListener(this);
+		button8.addActionListener(this);
+		button9.addActionListener(this);
+		addition.addActionListener(this);
+		subtraction.addActionListener(this);
+		multiply.addActionListener(this);
+		divide.addActionListener(this);
+
 		add(tf);
 
 		add(button0);
@@ -104,80 +134,57 @@ public class CalcView extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	public void setZeroBtnListener(ActionListener listener) {
-		button0.addActionListener(listener);
-	}
-
-	public void setOneBtnListener(ActionListener listener) {
-		button1.addActionListener(listener);
-	}
-
-	public void setTwoBtnListener(ActionListener listener) {
-		button2.addActionListener(listener);
-	}
-
-	public void setThreeBtnListener(ActionListener listener) {
-		button3.addActionListener(listener);
-	}
-
-	public void setFourBtnListener(ActionListener listener) {
-		button4.addActionListener(listener);
-	}
-
-	public void setFiveBtnListener(ActionListener listener) {
-		button5.addActionListener(listener);
-	}
-
-	public void setSixBtnListener(ActionListener listener) {
-		button6.addActionListener(listener);
-	}
-
-	public void setSevenBtnListener(ActionListener listener) {
-		button7.addActionListener(listener);
-	}
-
-	public void setEightBtnListener(ActionListener listener) {
-		button8.addActionListener(listener);
-	}
-
-	public void setNineBtnListener(ActionListener listener) {
-		button9.addActionListener(listener);
-	}
-
-	public void setAdditionBtnListener(ActionListener listener) {
-		addition.addActionListener(listener);
-	}
-
-	public void setSubtractionBtnListener(ActionListener listener) {
-		subtraction.addActionListener(listener);
-	}
-
-	public void setMultiplyBtnListener(ActionListener listener) {
-		multiply.addActionListener(listener);
-	}
-
-	public void setDivideBtnListener(ActionListener listener) {
-		divide.addActionListener(listener);
-	}
-
 	public void setequalsBtnListener(ActionListener listener) {
 		equals.addActionListener(listener);
 	}
-	
-	public void setText(String text) {
-		tf.setText(tf.getText()+ text);
-	}
-	
-	public static CalcView getInstance() {
-		return instance;
-	}
-	
 
+	public void setText(String text) {
+		tf.setText(tf.getText() + text);
+	}
+	
+	public void setAnswer(String answer ) {
+		tf.setText(answer);
+	}
+	
+	public String getText() {
+		return tf.getText();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if ("0".equals(e.getActionCommand())) {
+			setText("0");
+		} else if ("1".equals(e.getActionCommand())) {
+			setText("1");
+		} else if ("2".equals(e.getActionCommand())) {
+			setText("2");
+		} else if ("3".equals(e.getActionCommand())) {
+			setText("3");
+		} else if ("4".equals(e.getActionCommand())) {
+			setText("4");
+		} else if ("5".equals(e.getActionCommand())) {
+			setText("5");
+		} else if ("6".equals(e.getActionCommand())) {
+			setText("6");
+		} else if ("7".equals(e.getActionCommand())) {
+			setText("7");
+		} else if ("8".equals(e.getActionCommand())) {
+			setText("8");
+		} else if ("9".equals(e.getActionCommand())) {
+			setText("9");
+		} else if ("+".equals(e.getActionCommand())) {
+			setText("+");
+		} else if ("-".equals(e.getActionCommand())) {
+			setText("-");
+		} else if ("*".equals(e.getActionCommand())) {
+			setText("*");
+		} else if ("/".equals(e.getActionCommand())) {
+			setText("/");
+		}
 
 	}
 
+	public static CalcView getInstance() {
+		return instance;
+	}
 }
