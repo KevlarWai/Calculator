@@ -139,7 +139,4 @@ public class Calc {
 		return operatorPosition;
 	}
 
-	public static Calc getInstance() {
-		return instance;
-	}
 }
